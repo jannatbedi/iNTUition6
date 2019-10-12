@@ -8,11 +8,17 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "b": "^2.0.1",
+    "eact": "0.0.1-security",
     "expo": "^35.0.0",
-    "react": "16.8.3",
+    "expo-permissions": "^7.0.0",
+    "react": "^16.10.2",
     "react-dom": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
-    "react-native-web": "^0.11.7"
+    "react-native-camera": "^3.7.1",
+    "react-native-permissions": "^2.0.2",
+    "react-native-web": "^0.11.7",
+    "react-native-webview": "^7.0.5"
   },
   "devDependencies": {
     "babel-preset-expo": "^7.0.0"
