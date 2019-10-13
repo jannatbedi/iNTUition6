@@ -3,14 +3,6 @@ import { Animated, Linking, View, StyleSheet, TouchableHighlight, TouchableOpaci
 import { WebBrowser } from 'expo';
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
 
-//import { Text, GalioProvider, theme, withGalio, Card } from 'galio-framework';
-
-const customTheme = {
-  SIZES: { BASE: 18, },
-  // this will overwrite the Galio SIZES BASE value 16
-  COLORS: { PRIMARY: 'red', } 
-};
-
 const furnitureChair= [
   {
      name: 'Chair',
@@ -23,8 +15,6 @@ const furnitureSofas = [
     url: 'https://www.ikea.com/PIAimages/0175610_PE328883_S5.JPG?f=s'
   }
  ]
-
-
 
  const wall= [
   {
@@ -104,7 +94,7 @@ export default class App extends Component {
     );
   }
   
-  _handleOpenWithLinkingSofa = (poland) => {
+  _handleOpenWithLinkingSofa = () => {
     //Linking.openURL('https://apps.8thwall.com/8thWall/aframe_manipulate/');
     Linking.openURL('https://jannatbedi.github.io/index.html');
   }
@@ -125,9 +115,9 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: 50,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#d1f2eb'
   },
   button: {
     marginVertical: 50,
@@ -137,7 +127,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: 150, 
     width: 250,
-    height: 100,
+    height: 80,
   },
   cardImageRadius: {
     height: 200
