@@ -3,8 +3,8 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": "https://6g-f34.anonymous.intuition6.exp.direct",
-  "packagerNgrokUrl": "https://packager.6g-f34.anonymous.intuition6.exp.direct",
-  "ngrokPid": 1845,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "webpackServerPort": null
 }

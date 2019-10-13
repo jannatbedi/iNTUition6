@@ -2,43 +2,63 @@ import React, { useState, useEffect, Component } from 'react';
 import { Animated, Linking, View, StyleSheet, TouchableHighlight, TouchableOpacity, Image, Text} from 'react-native';
 import { WebBrowser } from 'expo';
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
-const furnitureChair= [
+class HomeScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', backgroundColor:'#d1f2eb'}}>
+        <Image
+          style={{width: 500, height: 200}}
+          source={{uri: 'https://clipart.info/images/ccovers/1509729269christmas-lights-png-picture.png'}}
+        />
+        <Image
+          style={{width: 200, height: 200, margin:40}}
+          source={{uri: 'https://pixy.org/src/449/4497838.png'}}
+        />
+        <Text style={styles.decor}>Decor.IT</Text>
+        <Button
+          title="Learn More"
+          onPress={() => this.props.navigation.navigate('Canvas')}
+        />
+      </View>
+    );
+  }
+}
+
+const curtain= [
   {
-     name: 'Chair',
-     url: 'https://www.ikea.com/PIAimages/0681482_PE720106_S5.JPG?f=xs', 
+     url: 'https://cdn10.bigcommerce.com/s-9ese1/products/1398/images/78367/All-Seasons-Faux-Silk-Blackout-Curtains-ColAllSeasons_image1__11255.1555022966.600.600.jpg?c=2', 
   }
 ]
-const furnitureSofas = [
+const mirror = [
   {
-    name: 'Sofas',
-    url: 'https://www.ikea.com/PIAimages/0175610_PE328883_S5.JPG?f=s'
+    url: 'https://4.imimg.com/data4/AE/UF/MY-36224376/designer-mirror-500x500.jpg'
   }
  ]
 
- const wall= [
+ const poster= [
   {
-     name: 'Chair',
-     url: 'https://ae01.alicdn.com/kf/HTB1GSspKpXXXXa9XXXXq6xXFXXXC/Embossed-Textile-Import-Non-Woven-3D-ikea-Wallpapers-Roll-Chinese-wallpaper-flowers-stickers-Bedroom-3d-stereoscopic.jpg'
+     url: 'https://i.ebayimg.com/images/g/6mQAAOSwZgVddVYV/s-l300.jpg'
   },
  ]
 
  const elec= [
   {
-     name: 'Electronic',
      url: 'https://images-na.ssl-images-amazon.com/images/I/81ZBWDMY0YL._SL1500_.jpg'
   },
  ]
 
-export default class App extends Component {
+class CanvasScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Card title="Sofa">{
-          furnitureSofas.map((f, i) => {
+        <Card title="Curtain">{
+          curtain.map((f, i) => {
           return (
-          <View key={i} >
-              <TouchableOpacity onPress={this._handleOpenWithLinkingSofa} style = {styles.btn}>
+          <View key={i} style={{alignItems:'center'}}>
+              <TouchableOpacity onPress={this._handleOpenWithLinkingCurtain} style = {styles.btn}>
               <Image style = {styles.img} source ={{uri:f.url}} />
               <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}> 
               </View>
@@ -48,11 +68,11 @@ export default class App extends Component {
           })
         }
         </Card>
-        <Card title="Chair">{
-          furnitureChair.map((f, i) => {
+        <Card title="Mirror">{
+          mirror.map((f, i) => {
           return (
           <View key={i} >
-              <TouchableOpacity onPress={this._handleOpenWithLinkingChair} style = {styles.btn}>
+              <TouchableOpacity onPress={this._handleOpenWithLinkingMirror} style = {styles.btn}>
               <Image style = {styles.img} source ={{uri:f.url}} />
               <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}> 
               </View>
@@ -62,11 +82,11 @@ export default class App extends Component {
           })
         }
         </Card>
-        <Card title="Wallpaper">{
-          wall.map((w, i) => {
+        <Card title="Statue">{
+          poster.map((w, i) => {
           return (
           <View key={i}>
-            <TouchableOpacity onPress={this._handleOpenWithLinkingWall} style = {styles.btn}>
+            <TouchableOpacity onPress={this._handleOpenWithLinkingPoster} style = {styles.btn}>
             <Image style = {styles.img} source ={{uri:w.url}} />
             <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}> 
             </View>
@@ -76,7 +96,7 @@ export default class App extends Component {
           })
         }
         </Card>
-        <Card title="Electronic">{
+        <Card title="Electronics">{
           elec.map((e, i) => {
           return (
           <View key={i}>
@@ -94,21 +114,39 @@ export default class App extends Component {
     );
   }
   
-  _handleOpenWithLinkingSofa = () => {
+  _handleOpenWithLinkingCurtain = () => {
     //Linking.openURL('https://apps.8thwall.com/8thWall/aframe_manipulate/');
-    Linking.openURL('https://jannatbedi.github.io/index.html');
+    Linking.openURL('https://jannatbedi.github.io/index3.html');
   }
-  _handleOpenWithLinkingChair = () => {
+  _handleOpenWithLinkingPoster = () => {
     //Linking.openURL('https://apps.8thwall.com/8thWall/aframe_manipulate/');
-    Linking.openURL('https://jannatbedi.github.io/index.html');
+    Linking.openURL('https://jannatbedi.github.io/index5.html');
   }
-  _handleOpenWithLinkingWall = () => {
+  _handleOpenWithLinkingMirror = () => {
     //Linking.openURL('https://apps.8thwall.com/8thWall/aframe_manipulate/');
-    Linking.openURL('https://jannatbedi.github.io/index.html');
+    Linking.openURL('https://jannatbedi.github.io/index4.html');
   }
   _handleOpenWithLinkingElect = () => {
     //Linking.openURL('https://apps.8thwall.com/8thWall/aframe_manipulate/');
-    Linking.openURL('https://jannatbedi.github.io/index.html');
+    Linking.openURL('https://jannatbedi.github.io/index7.html');
+  }
+}
+
+const RootStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Canvas: CanvasScreen,
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
+
+const AppContainer = createAppContainer(RootStack);
+
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />;
   }
 }
 
@@ -120,27 +158,35 @@ const styles = StyleSheet.create({
     backgroundColor: '#d1f2eb'
   },
   button: {
-    marginVertical: 50,
+    marginVertical: 40,
     justifyContent: 'flex-start'
   },
   card: {
     justifyContent: 'center',
-    marginVertical: 150, 
+    marginVertical: 100, 
     width: 250,
-    height: 80,
+    height: 50,
   },
   cardImageRadius: {
     height: 200
   },
   img:{
-    height:80,
-    width:100,
-    marginRight:5,
+    height:60,
+    width:80,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  decor:{
+    fontSize: 30,
+    fontWeight: 'bold', 
   },
   btn:{
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft: 50
+    width: 100,
+    height: 50,
+    justifyContent: 'center',
+    margin: 1
   }
 
 
